@@ -6,6 +6,7 @@ using UnityEngine;
 public class ShipComponent : MonoBehaviour
 {
     public Action OnRotationStatusChanged;
+
     private static bool isRotating = false;
     public static bool IsRotating
     {

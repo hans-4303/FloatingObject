@@ -9,13 +9,4 @@ public class UIManager : MonoBehaviour
     public Button axisYForRightButton;
     public Button axisXForUpButton;
     public Button axisXForDownButton;
-
-    private void UpdateButtonStates ()
-    {
-        bool isRotating = ShipComponent.IsRotating;
-        axisYForLeftButton.enabled = isRotating;
-        axisYForRightButton.enabled = isRotating;
-        axisXForUpButton.enabled = isRotating;
-        axisXForDownButton.enabled = isRotating;
-    }
 }
