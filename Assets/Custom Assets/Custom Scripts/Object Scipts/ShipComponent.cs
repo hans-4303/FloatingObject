@@ -101,7 +101,7 @@ public class ShipComponent : MonoBehaviour
             Quaternion rotX = Quaternion.AngleAxis(-mouseX, Vector3.up);
             Quaternion rotY = Quaternion.AngleAxis(mouseY, Vector3.right);
 
-            transform.rotation = transform.rotation * rotX * rotY;
+            transform.rotation = rotX * rotY * transform.rotation;
             UpdateRotationStatus(false);
         }
     }
