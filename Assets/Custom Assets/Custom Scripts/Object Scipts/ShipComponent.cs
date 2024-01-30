@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 public class ShipComponent : MonoBehaviour
 {
@@ -19,7 +18,7 @@ public class ShipComponent : MonoBehaviour
         OnRotationStatusChanged?.Invoke();
     }
 
-    private readonly Queue<RotationRequest> rotationQueue = new Queue<RotationRequest>();
+    private readonly Queue<RotationRequest> rotationQueue = new();
 
     private struct RotationRequest
     {
@@ -53,42 +52,18 @@ public class ShipComponent : MonoBehaviour
 
     public void HandleAxisYForLeftClick ()
     {
-        //if (!isRotating)
-        //{
-        //    Vector3 rotationAxis = Vector3.up;
-        //    float angle = 90f;
-        //    StartCoroutine(RotateOverTime(rotationAxis, angle, 1f));
-        //}
         EnqueueRotation(Vector3.up, 90f);
     }
     public void HandleAxisYForRightClick ()
     {
-        //if (!isRotating)
-        //{
-        //    Vector3 rotationAxis = Vector3.down;
-        //    float angle = 90f;
-        //    StartCoroutine(RotateOverTime(rotationAxis, angle, 1f));
-        //}
         EnqueueRotation(Vector3.down, 90f);
     }
     public void HandleAxisXForUpClick ()
     {
-        //if (!isRotating)
-        //{
-        //    Vector3 rotationAxis = Vector3.right;
-        //    float angle = 90f;
-        //    StartCoroutine(RotateOverTime(rotationAxis, angle, 1f));
-        //}
         EnqueueRotation(Vector3.right, 90f);
     }
     public void HandleAxisForDownClick ()
     {
-        //if (!isRotating)
-        //{
-        //    Vector3 rotationAxis = Vector3.left;
-        //    float angle = 90f;
-        //    StartCoroutine(RotateOverTime(rotationAxis, angle, 1f));
-        //}
         EnqueueRotation(Vector3.left, 90f);
     }
 
