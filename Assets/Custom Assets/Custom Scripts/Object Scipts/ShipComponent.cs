@@ -88,6 +88,26 @@ public class ShipComponent : MonoBehaviour
         ProcessNextRotationRequest();
     }
 
+    public void HandleResetAngleClick ()
+    {
+        this.StartCoroutine(ResetRotationOverTime(1.0f));
+    }
+
+    private IEnumerator ResetRotationOverTime(float duration)
+    {
+        Quaternion startRotation = this.transform.rotation;
+        float time = 0.0f;
+
+        while (time < duration)
+        {
+            this.transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        this.transform.rotation = Quaternion.identity;
+    }
+
     public float rotationSpeed = 300.0f;
 
     private void Update ()
